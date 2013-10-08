@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rrl-wS-dmZ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="qpI-yh-zqv">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Rrl-wS-dmZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="two-Er-cPr">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="6gV-cZ-nfY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KSQ-6K-Efi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-591" y="103"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wgY-Q9-XAV"/>
+                        <viewControllerLayoutGuide type="bottom" id="XNy-7M-VqK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aju-Gf-pMb">
+                                <rect key="frame" x="108" y="518" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Session">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createSessionButtonDidTouch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oZw-1y-sx2"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5e1-Br-1sA">
+                                <rect key="frame" x="46" y="269" width="229" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9cm-4b-t7i"/>
+                                    <constraint firstAttribute="width" constant="229" id="P2X-EC-bOm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="alZ-0t-xEz"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aju-Gf-pMb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="108" id="I5w-pW-ScX"/>
+                            <constraint firstAttribute="centerY" secondItem="5e1-Br-1sA" secondAttribute="centerY" id="KLw-3d-KlM"/>
+                            <constraint firstAttribute="centerX" secondItem="5e1-Br-1sA" secondAttribute="centerX" id="gqq-ex-DEA"/>
+                            <constraint firstAttribute="trailing" secondItem="aju-Gf-pMb" secondAttribute="trailing" constant="108" id="r0q-Sd-OQd"/>
+                            <constraint firstItem="XNy-7M-VqK" firstAttribute="top" secondItem="aju-Gf-pMb" secondAttribute="bottom" constant="20" id="xXU-di-Rer"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3FW-BR-aLg"/>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="5e1-Br-1sA" id="SdA-FY-Wws"/>
+                        <segue destination="PT4-vz-Ucb" kind="push" identifier="PushPeerListViewSegue" id="KaU-qG-4tz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-138" y="103"/>
+        </scene>
+        <!--Peer List View Controller-->
+        <scene sceneID="b72-jt-eWd">
+            <objects>
+                <tableViewController id="PT4-vz-Ucb" customClass="PeerListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ROA-1X-xLK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WBd-8H-EP7">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WBd-8H-EP7" id="Zf8-qO-Dzd">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PT4-vz-Ucb" id="4yq-EF-as8"/>
+                            <outlet property="delegate" destination="PT4-vz-Ucb" id="QnP-hm-PoR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Hst-U8-86D">
+                        <barButtonItem key="rightBarButtonItem" title="Browse" id="slI-Ol-qq5">
+                            <connections>
+                                <action selector="browseButtonDidTouch:" destination="PT4-vz-Ucb" id="amJ-rL-Fvh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bZQ-Z2-CR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350" y="103"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
